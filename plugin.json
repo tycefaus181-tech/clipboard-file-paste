@@ -1,0 +1,12 @@
+{
+  "name": "clipboard-file-paste",
+  "displayName": "Clipboard File Paste (剪贴板文件直粘)",
+  "version": "1.0.0",
+  "description": "支持在资源管理器 Ctrl+C 复制任意文件或文件夹后，直接在 Antigravity 对话框中按 Ctrl+V 粘贴为 @文件 引用，并提供剪贴板侧边栏面板与自动上下文注入。",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "读取并分析我刚刚在剪贴板里复制的文件",
+    "查看当前剪贴板中的文件列表",
+    "总结我刚才粘贴到对话框里的文件内容"
+  ]
+}

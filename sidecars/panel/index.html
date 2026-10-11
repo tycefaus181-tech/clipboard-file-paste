@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>剪贴板文件直粘</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/preload.js"></script>
+</head>
+<body>
+  <main class="panel">
+    <header class="panel-header">
+      <div class="header-row">
+        <h1>剪贴板文件直粘助手</h1>
+        <span id="daemon-badge" class="badge ok">守护进程运行中</span>
+      </div>
+      <p class="muted small">在资源管理器按 <kbd>Ctrl</kbd>+<kbd>C</kbd> 复制任意文件后，可直接在左侧聊天输入框按 <kbd>Ctrl</kbd>+<kbd>V</kbd> 粘贴为 <code>@文件</code> 引用胶囊。</p>
+    </header>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>当前系统剪贴板中的文件</h2>
+        <button id="btn-refresh" type="button" class="secondary small-btn">立即读取剪贴板</button>
+      </div>
+      <div id="file-list" class="file-list">
+        <p class="muted small">正在读取系统剪贴板…</p>
+      </div>
+      <div class="actions">
+        <button id="btn-send" type="button">发送剪贴板文件到当前对话</button>
+        <button id="btn-copy-pill" type="button" class="secondary">复制 @文件 标记</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>拖拽 / Ctrl+V 投递区</h2>
+      </div>
+      <div id="dropzone" class="dropzone" tabindex="0">
+        <p>在此处按 <kbd>Ctrl</kbd>+<kbd>V</kbd>、拖拽任意文件至此，或点击选择文件</p>
+        <input id="file-input" type="file" multiple hidden>
+      </div>
+      <textarea id="prompt-input" rows="2" placeholder="附带说明（可选）：例如“帮我分析这个文件的内容”…"></textarea>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>输入框 Ctrl+V 行为设置</h2>
+      </div>
+      <label class="toggle-row">
+        <input id="chk-enabled" type="checkbox" checked>
+        <span>启用资源管理器 <kbd>Ctrl</kbd>+<kbd>C</kbd> 文件转聊天框 <kbd>Ctrl</kbd>+<kbd>V</kbd> 直粘</span>
+      </label>
+      <div class="field-row">
+        <label for="sel-mode" class="small muted">聊天框 Ctrl+V 粘贴格式：</label>
+        <select id="sel-mode">
+          <option value="pill">原生 @文件 引用胶囊（推荐）</option>
+          <option value="path">纯本地文件路径（C:\...）</option>
+        </select>
+      </div>
+    </section>
+
+    <p id="toast" class="toast" role="status" aria-live="polite" hidden></p>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

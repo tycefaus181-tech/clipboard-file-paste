@@ -1,0 +1,12 @@
+{
+  "clipboard-file-paste-hook": {
+    "enabled": true,
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "node \"C:/Users/cnvnn/.gemini/config/plugins/clipboard-file-paste/scripts/pre-invocation.mjs\"",
+        "timeout": 5
+      }
+    ]
+  }
+}
